@@ -1,0 +1,228 @@
+{
+  "_magyarazat": "SKU szerinti beállítások. nev = a tévén látszó név, leiras = rövid jellemző a név alatt, kep = Shoprenter képútvonal (üresen a főképet használja), rejt = true esetén nem jelenik meg. Új modell ide kerül; ha hiányzik, a generátor a terméknévből próbál nevet adni, leírás nélkül.",
+  "marka_sorrend": [
+    "Engwe",
+    "Fiido",
+    "ADO",
+    "Samebike"
+  ],
+  "min_ar": 200000,
+  "modellek": {
+    "20LVXD30-II": {
+      "nev": "20LVXD30-II",
+      "leiras": "Összecsukható, 20 colos",
+      "kep": "product/20LVXD30-II/Bixie_Samebike_20LVXD30-II_feher.jpg",
+      "sarga_grafika_torles": true
+    },
+    "RS-A01": {
+      "nev": "RS-A01 Plus",
+      "leiras": "Kényelmes városi",
+      "kep": "product/RS-A01/samebike_rs_a01_feher_kosarral.jpg"
+    },
+    "RS-A02-PLUS": {
+      "nev": "RS-A02 Plus",
+      "leiras": "All-terrain, összecsukható",
+      "kep": "product/RS-A02/Termekkepek/Bixie-Samebike-RS-A02-green.jpg"
+    },
+    "ENGWE-E26": {
+      "nev": "E26 / E26ST",
+      "leiras": "Akár 140 km hatótáv",
+      "kep": "product/Engwe_E26/Engwe-E26-yellow-Bixie.jpg"
+    },
+    "ENGWE-ENGINE-PRO-2": {
+      "nev": "Engine Pro 2.0",
+      "leiras": "Fat bike nyomatékszenzorral",
+      "kep": "product/ENGWE-Engine-Pro-2/Bixie-Engwe-EnginePro20-gr.webp"
+    },
+    "RS-A01-PRO-T": {
+      "nev": "RS-A01 Pro T",
+      "leiras": "Praktikus városi",
+      "kep": "product/RS-A01-Pro-T/Bixie-SAMEBIKE-RS-A01-PRO-T-bk-s.webp"
+    },
+    "C05 Pro": {
+      "nev": "C05 Pro",
+      "leiras": "Összecsukható, sokat elbír",
+      "kep": "product/C05-Pro/Gallery/Samebike-C05Pro-Bixie-2.png"
+    },
+    "ENGWE-L20": {
+      "nev": "L20",
+      "leiras": "Alacsony átlépésű fat bike",
+      "kep": "product/Engwe-L20/Bixie-Engwe-L20-termek-foto.webp"
+    },
+    "ENGWE-L20-BOOST": {
+      "nev": "L20 Boost",
+      "leiras": "Nyomatékszenzor + turbó",
+      "kep": "product/Engwe-L20-Boost/product-photos/Bixie-Engwe-L20-Boost-product-1.webp"
+    },
+    "ENGWE-MAPFOUR-N1-AIR": {
+      "nev": "Mapfour N1 Air",
+      "leiras": "Pehelykönnyű karbonváz",
+      "kep": "product/Engwe-Mapfour-N1-Air/termekkepek/Bixie-Engwe-Mapfour-N1-Air-zold.jpg"
+    },
+    "ENGWE-L20-30-BOOST": {
+      "nev": "L20 3.0 Boost",
+      "leiras": "Összecsukható erőgép",
+      "kep": "product/Engwe-L20-30-Boost/termekkepek/Bixie-ENGWE-L20-30-Boost-arany-oldal.webp"
+    },
+    "ENGWE-M20": {
+      "nev": "M20",
+      "leiras": "Moped stílusú fat bike",
+      "kep": "product/Engwe-M20/termekkepek/Bixie-Engwe-M20-dualbattery-green-s.webp"
+    },
+    "ENGWE-P275-SE": {
+      "nev": "P275 SE",
+      "leiras": "Városi, nyomatékszenzoros",
+      "kep": "product/Engwe_P275_SE/Bixie-Engwe-P275SE-kek.webp"
+    },
+    "ENGWE-ENGINE-PRO-30-BOOST": {
+      "nev": "Engine Pro 3.0 Boost",
+      "leiras": "90 Nm, okosmodul",
+      "kep": "product/Engwe-Engine-Pro-30-Boost/Bixie-Engine-Pro-30-Boost-bl-s.webp"
+    },
+    "FIIDO-D11-2025": {
+      "nev": "D11 2025",
+      "leiras": "20 kg alatt",
+      "kep": "product/Fiido-D11-2025/product/Bixie-Fiido-D11-1.webp"
+    },
+    "FIIDO-M1-PRO": {
+      "nev": "M1 Pro",
+      "leiras": "Fat tire, összteleszkóp",
+      "kep": "product/Fiido-M1-Pro-2025/product/Bixie-Fiido-M1Pro-1-2.webp"
+    },
+    "FIIDO-T2": {
+      "nev": "T2",
+      "leiras": "Cargo a családnak",
+      "kep": "product/Fiido-T2-2025/product/Bixie-Fiido-T2-product-1-2-main.webp"
+    },
+    "FIIDO-C700": {
+      "nev": "C700",
+      "leiras": "Elegáns városi",
+      "kep": "product/Fiido-C700/product/Bixie-Fiido-C700-product-1-main.webp"
+    },
+    "FIIDO-C11-PRO": {
+      "nev": "C11 Pro",
+      "leiras": "Munkába és kirándulni",
+      "kep": "product/Fiido-C11-Pro/product/Bixie-Fiido-C11-Pro-termek-1.webp"
+    },
+    "FIIDO-NOMADS": {
+      "nev": "Nomads",
+      "leiras": "Trekking hétvégékre",
+      "kep": "product/Fiido-Nomads/product/Bixie-Fiido-Nomads-product-1-2.webp"
+    },
+    "FIIDO-C21": {
+      "nev": "C21",
+      "leiras": "Városi és gravel",
+      "kep": "product/Fiido-C21/product/Bixie-Fiido-C21-gravel-ebike-termek-1.webp"
+    },
+    "ADO-AIR-20S": {
+      "nev": "Air 20S",
+      "leiras": "Pehelysúly, karbonszíj",
+      "kep": "product/ADO-Air-20S/product/Bixie-ADO-Air-20S-termek-2.webp"
+    },
+    "ADO-AIR-20-PRO": {
+      "nev": "Air 20 Pro",
+      "leiras": "Összecsukható, automata váltó",
+      "kep": "product/ADO-Air-20-Pro/product/Bixie-ADO-Air-20-Pro-02-kek.webp"
+    },
+    "ADO-AIR-30": {
+      "nev": "Air 30",
+      "leiras": "Csendes cirkáló, GPS",
+      "kep": "product/ADO-Air30Pro-Air30Ultra/product/Bixie-ADO-Air30Pro-Air30Ultra-product-01-szurke.webp"
+    },
+    "ADO-AIR-28": {
+      "nev": "Air 28",
+      "leiras": "Holland váz, teleszkóp",
+      "kep": "product/ADO-Air28/product/Bixie-ADO-Air28-product-01-szurke.webp"
+    },
+    "ADO-AIR-28-PRO-ULTRA": {
+      "nev": "Air 28 Pro / Ultra",
+      "leiras": "Holland váz, automata",
+      "kep": "product/ADO-Air28-Pro-Ultra/product/Bixie-ADO-Air28-Pro-Ultra-product-01-szurke.webp"
+    },
+    "ADO-AIR-20-ULTRA": {
+      "nev": "Air 20 Ultra",
+      "leiras": "3 fokozatú automata",
+      "kep": "product/ADO-Air-20-Ultra/product/Bixie-ADO-Air-20-ultra-product-01-02-szurke.webp"
+    },
+    "ENGWE-EP-2-BOOST": {
+      "nev": "EP-2 Boost",
+      "leiras": "Összecsukható fat bike",
+      "kep": "product/Engwe-EP-2-Boost/product/Bixie-Engwe-EP-2-Boost-product-01-02-barna.webp"
+    },
+    "ENGWE-L20-30-PRO": {
+      "nev": "L20 3.0 Pro",
+      "leiras": "Ruganyos és kompakt",
+      "kep": "product/Engwe-L20-30-Pro/product/Bixie-Engwe-L20-30-Pro-product-01-02-pezsgo.webp"
+    },
+    "ENGWE-O20-BOOST": {
+      "nev": "O20 Boost",
+      "leiras": "Alacsony átlépés, összecsukható",
+      "kep": "product/Engwe-O20-Boost/product/Bixie-Engwe-O20-Boost-product-01-02-kek.webp"
+    },
+    "ENGWE-E26-30-PRO": {
+      "nev": "E26 3.0 Pro",
+      "leiras": "Középmotor, 100 Nm",
+      "kep": "product/Engwe-E26-30-Pro/product/Bixie-Engwe-E26-30-Pro-product-01-02-kek.webp"
+    },
+    "ENGWE-EP-2-30-BOOST": {
+      "nev": "EP-2 3.0 Boost",
+      "leiras": "Hidraulikus fék, 75 Nm",
+      "kep": "product/Engwe-EP-2-30-Boost/product/Bixie-Engwe-EP-2-30-Boost-product-01-02-zold.webp"
+    },
+    "FIIDO-T3-MAX": {
+      "nev": "T3 Max",
+      "leiras": "Longtail, 200 kg-ig",
+      "kep": "product/Fiido-T3-Max/product/Bixie-Fiido-T3-Max-product-01-02-oldalnezet.webp"
+    },
+    "FIIDO-T3": {
+      "nev": "T3",
+      "leiras": "Kompakt cargo, középmotor",
+      "kep": "product/Fiido-T3/product/Bixie-Fiido-T3-product-01-02-oldalnezet.webp"
+    },
+    "FIIDO-AIR": {
+      "nev": "Air",
+      "leiras": "13,75 kg karbon, Gates szíj",
+      "kep": "product/Fiido-Air/product/Bixie-Fiido-Air-product-01-02-oldalnezet.webp"
+    },
+    "FIIDO-TITAN": {
+      "nev": "Titan",
+      "leiras": "Akár 347 km hatótáv",
+      "kep": "product/Fiido-Titan/product/Bixie-Fiido-Titan-product-01-02-oldalnezet.webp"
+    },
+    "ADO-AIR-CARBON-PRO": {
+      "nev": "Air Carbon Pro",
+      "leiras": "Karbon + automata váltó",
+      "kep": "product/ADO-Air-Carbon-Pro/product/Bixie-ADO-Air-Carbon-Pro-product-01-02-feher.webp"
+    },
+    "ADO-AIR-CARBON": {
+      "nev": "Air Carbon",
+      "leiras": "Karbonváz, rejtett GPS",
+      "kep": "product/ADO-Air-Carbon/product/Bixie-ADO-Air-Carbon-product-01-02-latte.webp"
+    },
+    "FIIDO-X": {
+      "nev": "X",
+      "leiras": "iF-díjas, magnéziumváz",
+      "kep": "product/Fiido-X/product/Bixie-Fiido-X-product-01-02-oldalnezet.webp"
+    },
+    "ADO-AIR-ONE-PRO": {
+      "nev": "Air One Pro",
+      "leiras": "Családi, 150 kg-ig",
+      "kep": "product/ADO-Air-One/product/Bixie-ADO-Air-One-product-01-zold.webp"
+    },
+    "ADO-AIR-ONE-ULTRA": {
+      "nev": "Air One Ultra",
+      "leiras": "Családi teherbringa",
+      "kep": "product/ADO-Air-One/product/Bixie-ADO-Air-One-product-01-zold.webp"
+    },
+    "ENGWE-MAPFOUR-RAY-AIR": {
+      "nev": "Mapfour Ray Air",
+      "leiras": "Karbon, hidraulikus fék",
+      "kep": "product/Mapfour-Ray-Air/product/Bixie-Mapfour-Ray-Air-product-01-02-zold.webp"
+    },
+    "FIIDO-NOMADS-PRO": {
+      "nev": "Nomads Pro",
+      "leiras": "Középmotoros trekking",
+      "kep": "product/Fiido-Nomads-Pro/product/Bixie-Fiido-Nomads-Pro-product-01-02-oldalnezet.webp"
+    }
+  }
+}
