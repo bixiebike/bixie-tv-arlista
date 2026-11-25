@@ -1,0 +1,43 @@
+name: Android TV alkalmazás (APK)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["android/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.7"
+      - name: Aláíró kulcs visszaállítása
+        env:
+          KEYSTORE_B64: ${{ secrets.APK_KEYSTORE_B64 }}
+        run: |
+          if [ -n "$KEYSTORE_B64" ]; then echo "$KEYSTORE_B64" | base64 -d > android/bixie.keystore; fi
+      - name: APK építése
+        env:
+          KEYSTORE_PASS: ${{ secrets.APK_KEYSTORE_PASS }}
+        run: gradle -p android assembleRelease
+      - run: cp android/app/build/outputs/apk/release/app-release.apk bixie-arlista.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bixie-arlista-apk
+          path: bixie-arlista.apk
+      - name: Kiadás (állandó letöltési link)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete apk --yes --cleanup-tag || true
+          gh release create apk bixie-arlista.apk --title "Bixie TV árlista APK" --notes "Automatikus build: ${{ github.sha }}"
