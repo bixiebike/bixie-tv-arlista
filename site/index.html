@@ -77,8 +77,8 @@ body{background:#03062E;color:var(--white);font-family:var(--body);margin:0}
 .row .new{color:var(--yellow)}
 .row .pct{display:inline-block;background:var(--teal);color:var(--white);font-family:var(--display);font-weight:900;border-radius:999px;padding:.05em .5em;margin-right:.5em;font-size:.9em}
 .hero{position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:22px}
-.hero .disc{position:relative;aspect-ratio:1;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center}
-.hero .disc img{width:96%;height:auto;border-radius:10px;background:var(--white);padding:6% 4%;box-sizing:border-box}
+.hero .disc{position:relative;aspect-ratio:1;border-radius:50%;background:var(--white);box-shadow:inset 0 0 0 26px var(--yellow);display:flex;align-items:center;justify-content:center}
+.hero .disc img{width:76%;height:auto;max-height:62%;object-fit:contain}
 .hero .lbl{font-weight:800;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
 .hero .hn{font-family:var(--display);font-weight:900;font-size:56px;line-height:1}
 
@@ -124,8 +124,8 @@ body{background:#03062E;color:var(--white);font-family:var(--body);margin:0}
 .bf-art{position:absolute;left:1170px;top:150px;width:660px;height:660px;animation:float 6s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .bf-disc{position:absolute;inset:0;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 18px rgba(254,226,39,.12),0 0 120px rgba(254,226,39,.25)}
-.bf-card{position:absolute;left:50px;right:50px;top:150px;bottom:150px;background:var(--white);border-radius:22px;overflow:hidden}
-.bf-card img{position:absolute;inset:6% 5%;width:90%;height:88%;object-fit:contain;opacity:0;transform:scale(.96);transition:opacity .9s ease,transform 2.6s ease-out}
+.bf-card{position:absolute;inset:44px;background:var(--white);border-radius:50%;overflow:hidden}
+.bf-card img{position:absolute;inset:20% 11%;width:78%;height:60%;object-fit:contain;opacity:0;transform:scale(.96);transition:opacity .9s ease,transform 2.6s ease-out}
 .bf-card img.on{opacity:1;transform:none}
 .bf-stk{position:absolute;left:-40px;top:-10px;width:230px;height:230px;border-radius:50%;background:var(--teal);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;line-height:.95;box-shadow:0 12px 40px rgba(0,0,0,.35);animation:wob 4s ease-in-out infinite}
 .bf-stk small{font-size:30px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
