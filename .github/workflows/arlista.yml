@@ -37,7 +37,7 @@ jobs:
           SHOPRENTER_USER: ${{ secrets.SHOPRENTER_USER }}
           SHOPRENTER_PASS: ${{ secrets.SHOPRENTER_PASS }}
         run: python generator/general.py public
-      - run: cp site/index.html site/logo.svg public/
+      - run: cp -r site/. public/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
