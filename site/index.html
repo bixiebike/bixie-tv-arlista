@@ -94,6 +94,48 @@ body{background:#03062E;color:var(--white);font-family:var(--body);margin:0}
 @keyframes wipe{0%{transform:scaleX(0);transform-origin:left}45%{transform:scaleX(1);transform-origin:left}55%{transform:scaleX(1);transform-origin:right}100%{transform:scaleX(0);transform-origin:right}}
 @media (prefers-reduced-motion:reduce){.in,.out,.pop,.wipe.go,.sk::after{animation-duration:.01s!important}}
 
+/* ---------- extra képernyők (akció, kép, videó) ---------- */
+.progress{z-index:6}
+.promo{position:absolute;inset:0;z-index:5;opacity:0;pointer-events:none;transition:opacity .7s ease}
+.promo.show{opacity:1}
+.promo .media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Black Friday */
+.bf{position:absolute;inset:0;background:radial-gradient(circle at 76% 42%,#16207A 0,#080B3A 38%,#03041A 72%);overflow:hidden}
+.bf::before{content:"";position:absolute;right:-300px;top:-380px;width:1000px;height:1000px;border-radius:50%;border:80px solid rgba(254,226,39,.05)}
+.bf-l{position:absolute;left:96px;top:58px;width:1060px;display:flex;flex-direction:column;align-items:flex-start}
+.bf-logo{height:58px;width:auto}
+.bf-kick{margin-top:34px;background:var(--yellow);color:var(--card-ink);font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:.06em;text-transform:uppercase;padding:8px 26px;border-radius:999px}
+.bf-h{margin:22px 0 0;font-family:var(--display);font-weight:900;font-size:186px;line-height:.86;letter-spacing:-.01em;display:flex;flex-direction:column}
+.bf-h span{background:linear-gradient(105deg,#fff 0 42%,#FFF7C2 50%,#fff 58% 100%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+.bf-h span+span{background-image:linear-gradient(105deg,var(--yellow) 0 42%,#FFFBE6 50%,var(--yellow) 58% 100%);animation-delay:.25s}
+@keyframes shine{0%,55%{background-position:100% 0}100%{background-position:0 0}}
+.bf-sub{margin:30px 0 0;font-size:44px;font-weight:600;line-height:1.2;color:var(--white)}
+.bf-sub b{color:var(--yellow);font-weight:800}
+.bf-clk{margin-top:40px}
+.bf-clk .lb{font-size:24px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mist);margin-bottom:12px}
+.bf-clk .lb b{color:var(--white)}
+.bf-boxes{display:flex;gap:14px}
+.bf-box{width:150px;padding:12px 0 10px;border-radius:16px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.1);text-align:center}
+.bf-box .n{display:block;font-family:var(--display);font-weight:900;font-size:76px;line-height:1;color:var(--yellow);font-variant-numeric:tabular-nums}
+.bf-box .u{display:block;margin-top:6px;font-size:17px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mist)}
+.bf-box.tick .n{animation:tick .35s ease-out}
+@keyframes tick{from{transform:translateY(-6px);opacity:.4}to{transform:none;opacity:1}}
+.bf-art{position:absolute;left:1170px;top:150px;width:660px;height:660px;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.bf-disc{position:absolute;inset:0;border-radius:50%;background:var(--yellow);box-shadow:0 0 0 18px rgba(254,226,39,.12),0 0 120px rgba(254,226,39,.25)}
+.bf-card{position:absolute;left:50px;right:50px;top:150px;bottom:150px;background:var(--white);border-radius:22px;overflow:hidden}
+.bf-card img{position:absolute;inset:6% 5%;width:90%;height:88%;object-fit:contain;opacity:0;transform:scale(.96);transition:opacity .9s ease,transform 2.6s ease-out}
+.bf-card img.on{opacity:1;transform:none}
+.bf-stk{position:absolute;left:-40px;top:-10px;width:230px;height:230px;border-radius:50%;background:var(--teal);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:var(--display);font-weight:900;line-height:.95;box-shadow:0 12px 40px rgba(0,0,0,.35);animation:wob 4s ease-in-out infinite}
+.bf-stk small{font-size:30px;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.bf-stk span{font-size:78px}
+@keyframes wob{0%,100%{transform:rotate(-10deg) scale(1)}50%{transform:rotate(-4deg) scale(1.05)}}
+.bf-strip{position:absolute;left:96px;right:96px;bottom:46px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.bf-it{display:flex;align-items:center;gap:22px;padding:20px 26px;border-radius:18px;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.08);font-size:26px;font-weight:600;line-height:1.3;color:var(--mist)}
+.bf-it b{color:var(--white);font-weight:800}
+.bf-it svg{flex:none;width:52px;height:52px;stroke:var(--yellow);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
 html.still *,html.still *::after{animation:none!important;transition:none!important}
 /* ---------- vezérlő (csak előnézetben) ---------- */
 .ctl{width:100%;max-width:1600px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
@@ -118,6 +160,7 @@ html.still *,html.still *::after{animation:none!important;transition:none!import
       <button id="prev">◀ Előző</button>
       <button id="play" aria-pressed="false">Szünet</button>
       <button id="next">Következő ▶</button>
+      <button id="ex">Extra képernyő</button>
     </div>
   </div>
   <div class="frame" id="frame">
@@ -132,6 +175,7 @@ html.still *,html.still *::after{animation:none!important;transition:none!import
         <span><b>Bixie bemutatóterem</b> · 1012 Budapest, Attila út 117. · <b>bixie.hu</b></span>
         <span class="note" id="upd"></span>
       </footer>
+      <div class="promo" id="promo"></div>
       <div class="progress" id="prog"></div>
     </div>
   </div>
@@ -152,6 +196,9 @@ let style=Q.get("stil")==="a"?"A":"B", idx=0, paused=false, timer=null, t0=0;
 
 let brands=[], pending=null, started=false;
 const REFRESH_MIN=15, CACHE_KEY="bixie-arlista-v1";
+// extra képernyők (extra.json): minden kör végén, a márkák után jönnek, dátum szerint maguktól ki-be kapcsolnak
+let extras=[], exPos=-1, exTimers=[];
+const EX_KEY="bixie-extra-v1", EXTRA_OFF=Q.get("extra")==="0";
 
 const $=id=>document.getElementById(id);
 const fmt=n=>n.toLocaleString("hu-HU").replace(/\s/g," ");
@@ -182,16 +229,35 @@ async function fetchData(){
   if(!r.ok)throw new Error("HTTP "+r.status);
   const d=await r.json();cachePut(d);return d;
 }
+async function fetchExtra(){
+  if(window.EXTRA)return window.EXTRA;
+  const r=await fetch("extra.json?t="+Date.now(),{cache:"no-store"});
+  if(!r.ok)throw new Error("HTTP "+r.status);
+  const d=await r.json();try{localStorage.setItem(EX_KEY,JSON.stringify(d))}catch(e){}return d;
+}
+async function loadExtra(){
+  let d=null;
+  try{d=await fetchExtra()}catch(e){try{d=JSON.parse(localStorage.getItem(EX_KEY)||"null")}catch(x){}}
+  if(d&&Array.isArray(d.kepernyok))extras=d.kepernyok;
+}
+function today(){const d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function activeExtras(){
+  if(EXTRA_OFF)return[];
+  const t=today();
+  return extras.filter(e=>e&&TEMPLATES[e.tipus]&&(!e.tol||e.tol<=t)&&(!e.ig||t<=e.ig));
+}
 async function boot(){
   let d=null;
+  await loadExtra();
   try{d=await fetchData()}catch(e){d=cacheGet()}
   if(!d||!d.items||!d.items.length){$("bname").innerHTML='Árlista<small>betöltés…</small>';setTimeout(boot,30000);return}
   setData(d);idx=Math.min(START,brands.length-1);started=true;show(true);
+  if(Q.get("kezd")==="extra"){const ax=activeExtras();if(ax.length)showExtra(ax,0)}
 }
-setInterval(async()=>{try{pending=await fetchData()}catch(e){}},REFRESH_MIN*60000);
+setInterval(async()=>{try{pending=await fetchData()}catch(e){}loadExtra()},REFRESH_MIN*60000);
 // naponta hajnali 4-kor teljes újratöltés (oldalfrissítések miatt)
 (function(){const n=new Date(),t=new Date(n);t.setHours(4,0,0,0);if(t<=n)t.setDate(t.getDate()+1);setTimeout(()=>location.reload(),t-n)})();
-function movePill(){const t=tabs.querySelectorAll(".tab")[idx];pill.style.left=t.offsetLeft+"px";pill.style.width=t.offsetWidth+"px";
+function movePill(){const t=tabs.querySelectorAll(".tab")[idx];if(!t)return;pill.style.left=t.offsetLeft+"px";pill.style.width=t.offsetWidth+"px";
   tabs.querySelectorAll(".tab").forEach((x,i)=>x.classList.toggle("on",i===idx));
   $("jump").querySelectorAll("button").forEach((x,i)=>x.setAttribute("aria-pressed",i===idx))}
 
@@ -271,19 +337,90 @@ function show(first){
   startProgress();
 }
 
-function startProgress(){
+function startProgress(sec){
+  sec=sec||SEC;
   const p=$("prog");p.getAnimations().forEach(a=>a.cancel());
+  clearTimeout(timer);
   if(paused){p.style.width="0";return}
-  p.animate([{width:"0%"},{width:"100%"}],{duration:SEC*1000,easing:"linear",fill:"forwards"});
-  clearTimeout(timer);timer=setTimeout(()=>go((idx+1)%brands.length),SEC*1000);
+  p.animate([{width:"0%"},{width:"100%"}],{duration:sec*1000,easing:"linear",fill:"forwards"});
+  timer=setTimeout(next,sec*1000);
 }
-function go(i){if(pending){const cur=brands[idx]&&brands[idx].brand;setData(pending);pending=null;}idx=(i+brands.length)%brands.length;clearTimeout(timer);show(false)}
+function next(){
+  const ax=activeExtras();
+  if(exPos>=0){if(exPos+1<ax.length)showExtra(ax,exPos+1);else go(0);return}
+  if(idx===brands.length-1&&ax.length){showExtra(ax,0);return}
+  go(idx+1);
+}
+function clearExTimers(){exTimers.forEach(t=>{clearTimeout(t);clearInterval(t)});exTimers=[]}
+function showExtra(ax,j){
+  const e=ax[j],p=$("promo");
+  exPos=j;clearExTimers();p.innerHTML="";
+  try{p.appendChild(TEMPLATES[e.tipus](e))}catch(err){console.error(err);exPos=-1;go(0);return}
+  void p.offsetWidth;p.classList.add("show");
+  startProgress(+e.mp||15);
+}
+function hideExtra(){
+  if(exPos<0)return;
+  exPos=-1;const p=$("promo");p.classList.remove("show");
+  setTimeout(()=>{if(exPos<0){clearExTimers();p.innerHTML=""}},800);
+}
+function go(i){hideExtra();if(pending){const cur=brands[idx]&&brands[idx].brand;setData(pending);pending=null;}idx=(i+brands.length)%brands.length;clearTimeout(timer);show(false)}
 
-$("prev").onclick=()=>go(idx-1);$("next").onclick=()=>go(idx+1);
-$("play").onclick=()=>{paused=!paused;$("play").setAttribute("aria-pressed",paused);$("play").textContent=paused?"Lejátszás":"Szünet";clearTimeout(timer);startProgress()};
+$("prev").onclick=()=>go(idx-1);
+$("ex").onclick=()=>{const ax=activeExtras();if(ax.length)showExtra(ax,exPos>=0?(exPos+1)%ax.length:0)};$("next").onclick=()=>go(idx+1);
+$("play").onclick=()=>{paused=!paused;$("play").setAttribute("aria-pressed",paused);$("play").textContent=paused?"Lejátszás":"Szünet";clearTimeout(timer);startProgress(exPos>=0?+(activeExtras()[exPos]||{}).mp:0)};
 function setStyle(s){style=s;$("sA").setAttribute("aria-pressed",s==="A");$("sB").setAttribute("aria-pressed",s==="B");clearTimeout(timer);show(false)}
 $("sA").onclick=()=>setStyle("A");$("sB").onclick=()=>setStyle("B");
 $("sA").setAttribute("aria-pressed",style==="A");$("sB").setAttribute("aria-pressed",style==="B");
+
+// ---------- extra képernyő-sablonok ----------
+function el(html){const d=document.createElement("div");d.innerHTML=html.trim();return d.firstChild}
+const ICON={
+  gift:'<svg viewBox="0 0 48 48"><rect x="7" y="18" width="34" height="9" rx="1.5"/><path d="M10 27v14h28V27M24 18v23"/><path d="M24 18c-3-6-11-8-11-3 0 3 5 3 11 3zM24 18c3-6 11-8 11-3 0 3-5 3-11 3z"/></svg>',
+  tag:'<svg viewBox="0 0 48 48"><path d="M7 25V9h16l18 18-16 16z"/><circle cx="16" cy="18" r="3"/></svg>'
+};
+const TEMPLATES={
+  kep:e=>el(`<img class="media" alt="" src="${e.src}">`),
+  video:e=>el(`<video class="media" src="${e.src}" muted autoplay loop playsinline></video>`),
+  blackfriday:e=>{
+    const items=brands.flatMap(b=>b.items), sale=items.filter(i=>i.sale);
+    const seen=new Set(), imgs=[...sale].sort((x,y)=>pct(y)-pct(x)).map(i=>i.img).filter(s=>!seen.has(s)&&seen.add(s)).slice(0,8);
+    const n=e.modellszam||sale.length;
+    const root=el(`<div class="bf">
+      <div class="bf-l">
+        <img class="bf-logo in" alt="Bixie" src="logo.svg">
+        <div class="bf-kick in" style="animation-delay:120ms">${e.felirat||"Csak november 30-ig"}</div>
+        <h1 class="bf-h in" style="animation-delay:220ms"><span>Black</span><span>Friday</span></h1>
+        <p class="bf-sub in" style="animation-delay:360ms"><b>${n} modell</b> most akár <b>${fmt(e.akar_ft||160000)} Ft-tal</b> olcsóbb.</p>
+        <div class="bf-clk in" style="animation-delay:480ms"><div class="lb"></div>
+          <div class="bf-boxes"><div class="bf-box"><span class="n">0</span><span class="u">nap</span></div><div class="bf-box"><span class="n">00</span><span class="u">óra</span></div><div class="bf-box"><span class="n">00</span><span class="u">perc</span></div><div class="bf-box"><span class="n">00</span><span class="u">mp</span></div></div>
+        </div>
+      </div>
+      <div class="bf-art pop" style="animation-delay:300ms"><div class="bf-disc"></div><div class="bf-card">${imgs.map(s=>`<img alt="" src="${s}">`).join("")}</div>
+        <div class="bf-stk"><small>akár</small><span>−${e.akar_szazalek||24}%</span></div></div>
+      <div class="bf-strip">
+        ${(e.sorok||[]).map((s,k)=>`<div class="bf-it in" style="animation-delay:${620+k*120}ms">${ICON[s.ikon]||ICON.tag}<span>${s.szoveg}</span></div>`).join("")}
+      </div>
+    </div>`);
+    // a lebegés a beugrás után induljon
+    const art=root.querySelector(".bf-art");exTimers.push(setTimeout(()=>{art.classList.remove("pop");art.style.animationDelay="0ms"},900));
+    // képváltás
+    const ims=[...root.querySelectorAll(".bf-card img")];let k=0;
+    if(ims.length){ims[0].classList.add("on");if(ims.length>1)exTimers.push(setInterval(()=>{ims[k].classList.remove("on");k=(k+1)%ims.length;ims[k].classList.add("on")},2600))}
+    // visszaszámláló
+    const end=new Date((e.ig||"2026-11-30")+"T23:59:59").getTime()+1000;
+    const box=[...root.querySelectorAll(".bf-box")], lb=root.querySelector(".bf-clk .lb");
+    const tickF=()=>{
+      const s=Math.max(0,Math.floor((end-Date.now())/1000));
+      const v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60];
+      lb.innerHTML=v[0]===0?"<b>Ma éjfélkor véget ér!</b>":"Ennyi idő van még hátra:";
+      v.forEach((x,i)=>{const t=i?String(x).padStart(2,"0"):String(x),nn=box[i].querySelector(".n");
+        if(nn.textContent!==t){nn.textContent=t;box[i].classList.remove("tick");void box[i].offsetWidth;box[i].classList.add("tick")}});
+    };
+    tickF();exTimers.push(setInterval(tickF,1000));
+    return root;
+  }
+};
 
 document.fonts&&document.fonts.ready.then(()=>{movePill()});
 boot();
