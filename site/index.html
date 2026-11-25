@@ -1,0 +1,291 @@
+<meta charset="utf-8">
+<title>Bixie TV árlista</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@700;800;900&family=Montserrat:wght@500;600;700;800&display=swap">
+<style>
+/* Layout: 1920x1080 fix színpad, a képernyőhöz skálázva; márkánként egy képernyő, két stílus (kártyás / menütábla). */
+:root{
+  --navy:#0011A2;
+  --ground:#070C5E;
+  --ground-2:#0A137A;
+  --yellow:#FEE227;
+  --teal:#27C99B;
+  --white:#FFFFFF;
+  --mist:#C9CCF2;
+  --card-ink:#0B1270;
+  --muted-ink:#5A60A8;
+  --display:"Prompt","Arial Black",system-ui,sans-serif;
+  --body:"Montserrat","Segoe UI",system-ui,sans-serif;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:#03062E;color:var(--white);font-family:var(--body);margin:0}
+.page{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:16px;display:flex;flex-direction:column;gap:14px;align-items:center}
+.tv .page{padding:0;height:100%;justify-content:center;background:var(--ground)}
+.frame{width:100%;max-width:1600px;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5);background:var(--ground)}
+.tv .frame{max-width:none;border-radius:0;box-shadow:none;width:min(100vw,calc(100vh*16/9))}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;background:var(--ground);overflow:hidden}
+
+/* háttér: finom sárga körív, a logó kerékjelére utalva */
+.stage::before{content:"";position:absolute;right:-260px;top:-420px;width:900px;height:900px;border-radius:50%;border:70px solid rgba(254,226,39,.06)}
+.stage::after{content:"";position:absolute;left:-200px;bottom:-520px;width:800px;height:800px;border-radius:50%;background:rgba(39,201,155,.05)}
+
+.top{position:absolute;left:48px;right:48px;top:0;height:150px;display:flex;align-items:center;gap:40px;z-index:2}
+.logo{height:66px;width:auto;flex:none}
+.brandwrap{position:relative;flex:1;min-width:0;height:110px;overflow:hidden;display:flex;align-items:center}
+.brandname{font-family:var(--display);font-weight:900;font-size:104px;line-height:1;color:var(--yellow);letter-spacing:.01em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:baseline;gap:28px}
+.brandname small{font-family:var(--body);font-weight:700;font-size:28px;color:var(--mist);letter-spacing:.04em;text-transform:none}
+.wipe{position:absolute;inset:0;background:var(--yellow);transform:scaleX(0);transform-origin:left;z-index:3}
+.tabs{position:relative;display:flex;gap:6px;padding:6px;border-radius:999px;background:rgba(255,255,255,.08);flex:none}
+.tab{position:relative;z-index:1;font-weight:800;font-size:22px;letter-spacing:.08em;text-transform:uppercase;padding:12px 22px;color:var(--mist);transition:color .4s}
+.tab.on{color:var(--card-ink)}
+.pill{position:absolute;top:6px;bottom:6px;border-radius:999px;background:var(--yellow);transition:left .6s cubic-bezier(.65,0,.35,1),width .6s cubic-bezier(.65,0,.35,1)}
+
+.board{position:absolute;left:48px;right:48px;top:156px;bottom:92px;z-index:1}
+.foot{position:absolute;left:48px;right:48px;bottom:0;height:80px;display:flex;align-items:center;justify-content:space-between;font-size:22px;font-weight:600;color:var(--mist);z-index:2}
+.foot b{color:var(--white);font-weight:800}
+.foot .note{font-size:19px;font-weight:500}
+.progress{position:absolute;left:0;bottom:0;height:8px;background:var(--teal);width:0}
+
+/* ---------- A: kártyás ---------- */
+.grid{position:absolute;inset:0;display:flex;flex-wrap:wrap;justify-content:center;align-content:center}
+.card{position:relative;background:var(--white);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;color:var(--card-ink)}
+.card .ph{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:6% 7% 2%}
+.card .ph img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.card .nm{padding:0 7%;font-family:var(--display);font-weight:800;line-height:1.05;letter-spacing:-.005em}
+.card .tg{padding:0 7%;font-weight:600;color:var(--muted-ink);line-height:1.25;margin-top:.25em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.card .pr{margin-top:.6em;background:var(--yellow);display:flex;align-items:center;justify-content:space-between;gap:.4em;padding:.28em 7%}
+.card.full .pr{background:#EEF0FF}
+.old{position:relative;font-weight:700;color:var(--muted-ink);white-space:nowrap;font-variant-numeric:tabular-nums}
+.old::after{content:"";position:absolute;left:-4%;right:-4%;top:52%;height:.13em;background:#E5312F;transform-origin:left;border-radius:2px}
+.sk::after{animation:strike .5s cubic-bezier(.6,0,.2,1) both;animation-delay:var(--d,0ms)}
+.new{font-family:var(--display);font-weight:900;white-space:nowrap;line-height:1;font-variant-numeric:tabular-nums}
+.new .ft{font-size:.55em;margin-left:.12em}
+.badge{position:absolute;top:5%;left:5%;background:var(--teal);color:var(--white);font-family:var(--display);font-weight:900;border-radius:999px;padding:.18em .55em;line-height:1.1}
+
+/* ---------- B: menütábla ---------- */
+.menu{position:absolute;inset:0;display:grid;gap:0 56px;align-content:center}
+.row{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px;border-bottom:2px solid rgba(255,255,255,.09)}
+.row .th{background:var(--white);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.row .th img{max-width:92%;max-height:88%;object-fit:contain}
+.row .tx{min-width:0;display:flex;flex-direction:column;gap:2px}
+.row .nm{font-family:var(--display);font-weight:800;color:var(--white);line-height:1.05;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .tg{color:var(--teal);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .pz{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.row .old{color:var(--mist)}
+.row .new{color:var(--yellow)}
+.row .pct{display:inline-block;background:var(--teal);color:var(--white);font-family:var(--display);font-weight:900;border-radius:999px;padding:.05em .5em;margin-right:.5em;font-size:.9em}
+.hero{position:absolute;left:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.hero .disc{position:relative;aspect-ratio:1;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center}
+.hero .disc img{width:96%;height:auto;border-radius:10px;background:var(--white);padding:6% 4%;box-sizing:border-box}
+.hero .lbl{font-weight:800;font-size:24px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal)}
+.hero .hn{font-family:var(--display);font-weight:900;font-size:56px;line-height:1}
+
+/* ---------- animáció ---------- */
+.in{animation:rise .7s cubic-bezier(.2,.9,.25,1.15) both}
+.out{animation:drop .45s cubic-bezier(.5,0,.75,0) both}
+@keyframes rise{from{opacity:0;transform:translateY(60px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes drop{to{opacity:0;transform:translateY(-40px) scale(.98)}}
+@keyframes strike{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.pop{animation:pop .5s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+.wipe.go{animation:wipe 1s cubic-bezier(.7,0,.3,1) both}
+@keyframes wipe{0%{transform:scaleX(0);transform-origin:left}45%{transform:scaleX(1);transform-origin:left}55%{transform:scaleX(1);transform-origin:right}100%{transform:scaleX(0);transform-origin:right}}
+@media (prefers-reduced-motion:reduce){.in,.out,.pop,.wipe.go,.sk::after{animation-duration:.01s!important}}
+
+html.still *,html.still *::after{animation:none!important;transition:none!important}
+/* ---------- vezérlő (csak előnézetben) ---------- */
+.ctl{width:100%;max-width:1600px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.tv .ctl,.tv .hint{display:none}
+.seg{display:flex;gap:4px;padding:4px;background:#111650;border-radius:10px;flex-wrap:wrap}
+.ctl button{font:700 14px var(--body);color:var(--mist);background:transparent;border:0;border-radius:7px;padding:9px 14px;cursor:pointer}
+.ctl button[aria-pressed="true"]{background:var(--yellow);color:var(--card-ink)}
+.ctl button:hover{color:var(--white)}
+.ctl button[aria-pressed="true"]:hover{color:var(--card-ink)}
+.ctl button:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.hint{font-size:13px;color:#8F94D6;max-width:1600px;width:100%;line-height:1.5}
+</style>
+
+<div class="page">
+  <div class="ctl" id="ctl">
+    <div class="seg" role="group" aria-label="Stílus">
+      <button id="sA" aria-pressed="true">A · Kártyás</button>
+      <button id="sB" aria-pressed="false">B · Menütábla</button>
+    </div>
+    <div class="seg" role="group" aria-label="Márka" id="jump"></div>
+    <div class="seg" role="group" aria-label="Lejátszás">
+      <button id="prev">◀ Előző</button>
+      <button id="play" aria-pressed="false">Szünet</button>
+      <button id="next">Következő ▶</button>
+    </div>
+  </div>
+  <div class="frame" id="frame">
+    <div class="stage" id="stage">
+      <header class="top">
+        <img class="logo" alt="Bixie" src="logo.svg">
+        <div class="brandwrap"><div class="brandname" id="bname"></div><div class="wipe" id="wipe"></div></div>
+        <nav class="tabs" id="tabs"><span class="pill" id="pill"></span></nav>
+      </header>
+      <main class="board" id="board"></main>
+      <footer class="foot">
+        <span><b>Bixie bemutatóterem</b> · 1012 Budapest, Attila út 117. · <b>bixie.hu</b></span>
+        <span class="note" id="upd"></span>
+      </footer>
+      <div class="progress" id="prog"></div>
+    </div>
+  </div>
+  <p class="hint">Előnézet a tévéképernyőről (1920×1080, kicsinyítve). Élő adatok a Shoprenterből. A tévén ez a vezérlősáv nem látszik, a képernyők maguktól forognak.</p>
+</div>
+
+<!--DATA-->
+<script>
+(function(){
+const Q=new URLSearchParams(location.search);
+if(Q.has("tv"))document.documentElement.classList.add("tv");
+if(Q.has("allo"))document.documentElement.classList.add("still");
+const START=Math.max(0,+(Q.get("marka")||0));
+const SEC=+(Q.get("mp")||12);
+const ORDER=["Engwe","Fiido","ADO","Samebike"];
+const W=1824,H=832;
+let style=Q.get("stil")==="a"?"A":"B", idx=0, paused=false, timer=null, t0=0;
+
+let brands=[], pending=null, started=false;
+const REFRESH_MIN=15, CACHE_KEY="bixie-arlista-v1";
+
+const $=id=>document.getElementById(id);
+const fmt=n=>n.toLocaleString("hu-HU").replace(/\s/g," ");
+const pct=i=>i.sale?Math.round((i.price-i.sale)/i.price*100):0;
+
+// méretezés
+const stage=$("stage"),frame=$("frame");
+function fit(){stage.style.transform="scale("+(frame.clientWidth/1920)+")"}
+new ResizeObserver(fit).observe(frame);fit();
+
+// adatok
+const tabs=$("tabs"),pill=$("pill");
+function setData(d){
+  const order=d.order||ORDER;
+  brands=order.map(b=>({brand:b,items:d.items.filter(i=>i.brand===b).sort((x,y)=>(x.sale||x.price)-(y.sale||y.price))})).filter(b=>b.items.length);
+  tabs.querySelectorAll(".tab").forEach(t=>t.remove());$("jump").innerHTML="";
+  brands.forEach((b,i)=>{const s=document.createElement("span");s.className="tab";s.textContent=b.brand.toUpperCase();tabs.appendChild(s);
+    const j=document.createElement("button");j.textContent=b.brand;j.onclick=()=>go(i);$("jump").appendChild(j)});
+  const t=(d.updated||"").slice(11,16);
+  $("upd").textContent="Árak bruttó forintban"+(t?" · frissítve "+t:"");
+  if(idx>=brands.length)idx=0;
+}
+function cacheGet(){try{return JSON.parse(localStorage.getItem(CACHE_KEY)||"null")}catch(e){return null}}
+function cachePut(d){try{localStorage.setItem(CACHE_KEY,JSON.stringify(d))}catch(e){}}
+async function fetchData(){
+  if(window.ARLISTA)return window.ARLISTA;
+  const r=await fetch("prices.json?t="+Date.now(),{cache:"no-store"});
+  if(!r.ok)throw new Error("HTTP "+r.status);
+  const d=await r.json();cachePut(d);return d;
+}
+async function boot(){
+  let d=null;
+  try{d=await fetchData()}catch(e){d=cacheGet()}
+  if(!d||!d.items||!d.items.length){$("bname").innerHTML='Árlista<small>betöltés…</small>';setTimeout(boot,30000);return}
+  setData(d);idx=Math.min(START,brands.length-1);started=true;show(true);
+}
+setInterval(async()=>{try{pending=await fetchData()}catch(e){}},REFRESH_MIN*60000);
+// naponta hajnali 4-kor teljes újratöltés (oldalfrissítések miatt)
+(function(){const n=new Date(),t=new Date(n);t.setHours(4,0,0,0);if(t<=n)t.setDate(t.getDate()+1);setTimeout(()=>location.reload(),t-n)})();
+function movePill(){const t=tabs.querySelectorAll(".tab")[idx];pill.style.left=t.offsetLeft+"px";pill.style.width=t.offsetWidth+"px";
+  tabs.querySelectorAll(".tab").forEach((x,i)=>x.classList.toggle("on",i===idx));
+  $("jump").querySelectorAll("button").forEach((x,i)=>x.setAttribute("aria-pressed",i===idx))}
+
+
+function gridFor(n){
+  if(n<=5)return[n,1]; if(n<=8)return[4,2]; if(n<=10)return[5,2]; if(n<=12)return[4,3]; if(n<=15)return[5,3]; if(n<=18)return[6,3];
+  return[6,Math.ceil(n/6)];
+}
+
+function priceHTML(i,big){
+  const nw=`<span class="new">${fmt(i.sale||i.price)}<span class="ft">Ft</span></span>`;
+  return i.sale?`<span class="old">${fmt(i.price)}</span>${nw}`:`<span></span>${nw}`;
+}
+
+function buildA(b){
+  const n=b.items.length,[c,r]=gridFor(n),gap=22;
+  const cw=Math.min((W-gap*(c-1))/c,520), ch=Math.min((H-gap*(r-1))/r, cw*1.35);
+  const g=document.createElement("div");g.className="grid";g.style.gap=gap+"px";
+  const u=Math.min(cw/350,ch/250);
+  b.items.forEach((i,k)=>{
+    const d=document.createElement("article");d.className="card"+(i.sale?"":" full");
+    d.style.cssText=`width:${cw}px;height:${ch}px;font-size:${16*u}px`;
+    d.innerHTML=`<div class="ph"><img alt="" src="${i.img}"></div>
+      <div class="nm" style="font-size:${30*u}px">${i.name}</div>
+      <div class="tg" style="font-size:${17*u}px">${i.tag}</div>
+      <div class="pr"><span style="font-size:${23*u}px;display:contents">${i.sale?`<span class="old" style="font-size:${20*u}px">${fmt(i.price)}</span>`:"<span></span>"}</span><span class="new" style="font-size:${41*u}px">${fmt(i.sale||i.price)}<span class="ft">Ft</span></span></div>
+      ${i.sale?`<span class="badge" style="font-size:${22*u}px">−${pct(i)}%</span>`:""}`;
+    g.appendChild(d);
+  });
+  return g;
+}
+
+function buildB(b){
+  const n=b.items.length, wrap=document.createElement("div");wrap.style.cssText="position:absolute;inset:0";
+  const heroOn=n<=8, cols=n>8?2:1, rows=Math.ceil(n/cols);
+  const leftW=heroOn?620:0;
+  if(heroOn){
+    const top=[...b.items].sort((x,y)=>pct(y)-pct(x))[0];
+    const h=document.createElement("div");h.className="hero";h.style.width=(leftW-60)+"px";
+    h.innerHTML=pct(top)?`<div class="lbl">Legnagyobb kedvezmény · −${pct(top)}%</div>`:`<div class="lbl">Válogatás</div>`;
+    h.innerHTML+=`<div class="disc"><img alt="" src="${top.img}"></div><div class="hn">${b.brand} ${top.name}</div>`;
+    wrap.appendChild(h);
+  }
+  const m=document.createElement("div");m.className="menu";m.style.left=leftW+"px";
+  m.style.gridTemplateColumns=`repeat(${cols},1fr)`;m.style.gridAutoFlow="column";m.style.gridTemplateRows=`repeat(${rows},auto)`;
+  const rh=Math.min(H/rows,150), u=rh/104;
+  b.items.forEach(i=>{
+    const r=document.createElement("div");r.className="row";r.style.height=rh+"px";
+    r.innerHTML=`<div class="th" style="width:${rh*1.45}px;height:${rh-18}px"><img alt="" src="${i.img}"></div>
+      <div class="tx"><div class="nm" style="font-size:${34*u}px">${i.name}</div><div class="tg" style="font-size:${18*u}px">${i.tag}</div></div>
+      <div class="pz">${i.sale?`<span style="font-size:${20*u}px;white-space:nowrap"><span class="pct">−${pct(i)}%</span><span class="old">${fmt(i.price)} Ft</span></span>`:""}<span class="new" style="font-size:${46*u}px">${fmt(i.sale||i.price)}<span class="ft">Ft</span></span></div>`;
+    m.appendChild(r);
+  });
+  wrap.appendChild(m);
+  return wrap;
+}
+
+function show(first){
+  const b=brands[idx], board=$("board"), old=[...board.children];
+  // ki
+  old.forEach(o=>{[...o.querySelectorAll(".card,.row,.hero")].forEach((el,k)=>{el.style.animationDelay=(k*25)+"ms";el.classList.remove("in");el.classList.add("out")})});
+  const outT=first?0:Math.min(450+old.reduce((a,o)=>a+o.querySelectorAll(".card,.row").length,0)*25,900);
+  // márkanév törlés
+  const wipe=$("wipe");wipe.classList.remove("go");void wipe.offsetWidth;if(!first)wipe.classList.add("go");
+  setTimeout(()=>{$("bname").innerHTML=`${b.brand}<small>${b.items.length} modell</small>`},first?0:480);
+  movePill();
+  setTimeout(()=>{
+    old.forEach(o=>o.remove());
+    const el=style==="A"?buildA(b):buildB(b);
+    const items=[...el.querySelectorAll(".card,.row,.hero")];
+    items.forEach((x,k)=>{x.style.animationDelay=(k*55)+"ms";x.classList.add("in");
+      const ns=x.querySelectorAll(".new,.badge,.pct");ns.forEach(n=>{n.style.animationDelay=(k*55+650)+"ms";n.classList.add("pop")});
+    });
+    board.appendChild(el);
+    items.forEach((x,k)=>x.querySelectorAll(".old").forEach(o=>{o.classList.add("sk");o.style.setProperty("--d",(k*55+500)+"ms")}));
+  },outT);
+  startProgress();
+}
+
+function startProgress(){
+  const p=$("prog");p.getAnimations().forEach(a=>a.cancel());
+  if(paused){p.style.width="0";return}
+  p.animate([{width:"0%"},{width:"100%"}],{duration:SEC*1000,easing:"linear",fill:"forwards"});
+  clearTimeout(timer);timer=setTimeout(()=>go((idx+1)%brands.length),SEC*1000);
+}
+function go(i){if(pending){const cur=brands[idx]&&brands[idx].brand;setData(pending);pending=null;}idx=(i+brands.length)%brands.length;clearTimeout(timer);show(false)}
+
+$("prev").onclick=()=>go(idx-1);$("next").onclick=()=>go(idx+1);
+$("play").onclick=()=>{paused=!paused;$("play").setAttribute("aria-pressed",paused);$("play").textContent=paused?"Lejátszás":"Szünet";clearTimeout(timer);startProgress()};
+function setStyle(s){style=s;$("sA").setAttribute("aria-pressed",s==="A");$("sB").setAttribute("aria-pressed",s==="B");clearTimeout(timer);show(false)}
+$("sA").onclick=()=>setStyle("A");$("sB").onclick=()=>setStyle("B");
+$("sA").setAttribute("aria-pressed",style==="A");$("sB").setAttribute("aria-pressed",style==="B");
+
+document.fonts&&document.fonts.ready.then(()=>{movePill()});
+boot();
+})();
+</script>
