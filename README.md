@@ -15,9 +15,19 @@ A bemutatóterem tévéjén (TCL 50P755, Google TV) folyamatosan forgó árlista
 - **Modell elrejtése**: `"rejt": true` a `modellek.json`-ban.
 - **Kifutott / letiltott termék**: a Shoprenter státusza alapján magától lekerül.
 
+## Extra képernyők (akció, kép, videó)
+
+A `site/extra.json` sorolja fel őket. Körönként egyszer jönnek, az utolsó márka után. A `tol`/`ig` dátum (első és utolsó nap) szerint maguktól megjelennek és eltűnnek, levenni nem kell őket.
+
+- `"tipus": "blackfriday"`: animált BF-képernyő visszaszámlálóval; a modellszám élőben jön az árakból, az „akár” számok és az alsó két sor a fájlban állítható.
+- `"tipus": "kep"` vagy `"video"`: kész 1920×1080-as kép vagy hang nélküli mp4 a `site/extra/` mappában, `"src": "extra/fajlnev.jpg"`.
+- `"mp"`: hány másodpercig látszik.
+
+A tévé negyedóránként újraolvassa a fájlt, az APK-hoz nem kell nyúlni.
+
 ## URL-paraméterek (tesztelés böngészőben)
 
-`?tv=1` vezérlősáv nélkül · `?stil=a` kártyás stílus · `?marka=2` adott márkával indul · `?mp=20` másodperc/képernyő · `?allo=1` animáció nélkül
+`?tv=1` vezérlősáv nélkül · `?stil=a` kártyás stílus · `?marka=2` adott márkával indul · `?mp=20` másodperc/képernyő · `?allo=1` animáció nélkül · `?kezd=extra` az extra képernyővel indul · `?extra=0` extra képernyők nélkül
 
 ## GitHub Secrets
 
